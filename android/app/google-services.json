@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "827820975513",
+    "firebase_url": "https://smartpos-7b682.firebaseio.com",
+    "project_id": "smartpos-7b682",
+    "storage_bucket": "smartpos-7b682.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827820975513:android:771d7a850fc72502",
+        "android_client_info": {
+          "package_name": "com.smartPOS"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "827820975513-scn9ino091abbj56fejse98n87ch1u59.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1Lu3A1MIiD5bJd1L3AS9wRdz-t6Ds9Jw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
