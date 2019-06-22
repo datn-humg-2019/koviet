@@ -25,9 +25,6 @@ export default class BillScreen extends Component {
     };
     Navigation.events().bindComponent(this); // <== Will be automatically unregistered when unmounted
   }
-  componentWillMount() {
-    let { Bill } = this.props;
-  }
 
   componentDidMount() {
     this.handlerGetData();

@@ -403,19 +403,16 @@ export default class CreateDetailItem extends Component {
           text: "Đồng ý",
           //  text: 'Open Settings',
           onPress: () => {
-            Product.userStopProviding(
-              this.props.item.id,
-              (status, data) => {
-                if (status) {
-                  SimpleToast.show("Ngừng kinh doanh sản phẩm thành công");
-                  Product.getAllProduct("", "", "", status => {
-                    if (status) {
-                      self.goBack();
-                    }
-                  });
-                }
+            Product.userStopProviding(this.props.item.id, (status, data) => {
+              if (status) {
+                SimpleToast.show("Ngừng kinh doanh sản phẩm thành công");
+                Product.getAllProduct("", "", "", status => {
+                  if (status) {
+                    self.goBack();
+                  }
+                });
               }
-            );
+            });
           }
         } //vao setting xin quyen
       ]

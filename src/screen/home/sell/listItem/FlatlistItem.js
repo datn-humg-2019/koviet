@@ -46,7 +46,12 @@ export default class FlatlistItem extends Component {
         ]}
       >
         <Swipeout
-          style={{ flex: 1, alignItems: "center", width: "100%" ,backgroundColor:'#fff'}}
+          style={{
+            flex: 1,
+            alignItems: "center",
+            width: "100%",
+            backgroundColor: "#fff"
+          }}
           autoClose={true}
           sensitivity={100}
           right={swipeoutBtns}
@@ -67,7 +72,7 @@ export default class FlatlistItem extends Component {
                 alignItems: "center"
               },
               get(item, "stop_providing")
-                ? { backgroundColor: "#D7DAE0" ,}
+                ? { backgroundColor: "#D7DAE0" }
                 : { backgroundColor: "white" }
             ]}
           >
@@ -115,7 +120,9 @@ export default class FlatlistItem extends Component {
               <Text
                 style={{
                   color: color.mainColor,
-                  fontSize: values.fontSizeSmaller,
+                  fontSize: values.fontSizeNormal,
+                  marginTop: 3,
+                  fontWeight: "bold",
                   width: "100%"
                 }}
               >

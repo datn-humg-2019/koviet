@@ -97,10 +97,12 @@ export default class AuthScreen extends AppComponent {
   clickRegister = json => {
     let { User } = this.props;
     Keyboard.dismiss();
+    this.loading();
     User.registerAccount(json, status => {
       if (status) {
         this.setState({ type: type.login });
       }
+      this.noLoad();
     });
   };
 
@@ -143,7 +145,7 @@ export default class AuthScreen extends AppComponent {
                 color: color.mainColor
               }}
             >
-              {"KoViet"}
+              {"KOViet"}
             </Text>
             <View
               style={{
@@ -184,7 +186,7 @@ export default class AuthScreen extends AppComponent {
                         : color.colorText_nolected
                   }}
                 >
-                  Đăng ký
+                  Đăng ký
                 </Text>
               </TouchableOpacity>
             </View>

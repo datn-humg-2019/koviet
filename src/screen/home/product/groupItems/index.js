@@ -216,7 +216,7 @@ export default class GroupItemScreen extends Component {
           listSelected={Product.listSelected}
           getData={this.handlerGetData}
         />
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={this.createNew}
           style={{
             width: 50,
@@ -239,7 +239,7 @@ export default class GroupItemScreen extends Component {
             }}
             source={images.ic_plus}
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     );
   }

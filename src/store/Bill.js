@@ -14,7 +14,7 @@ class Bill {
   @observable listBillDefault = [];
   @observable refundItem = null;
   @observable dayFilter = "";
-  @observable billDetail = { data: [], amount: 0 };
+  @observable billDetail = {};
   @observable page = 0;
 
   @action
@@ -28,15 +28,14 @@ class Bill {
         if (index === size(toJS(bill.listCart) - 1)) {
           dt = "";
         }
-        product_ids += `${obj.id}` + dt;
-        counts += `${obj.value}` + dt;
+        product_ids += dt + `${obj.id}`;
+        counts += dt + `${obj.value}`;
       });
     }
     const body = { product_ids, counts, email };
-    console.log("body: ", body);
+    console.log("body:", body);
     PostWithToken(api.BILL.sell, body, (data, status) => {
       if (status) {
-        console.log("data:", data);
         if (get(data, "code") == 0) {
           if (size(get(data, "data")) > 0) {
             callback && callback(true);
@@ -64,33 +63,19 @@ class Bill {
   }
   @action
   setBillDetail(data) {
-    this.billDetail.data = data;
-    if (data) {
-      let amount = 0;
-      map(data, obj => {
-        amount += parseInt(obj.price + "") * parseInt(obj.count + "");
-      });
-      this.billDetail.amount = amount;
-    }
-
-    // this.filterBill(day)
+    console.log("data: ", data);
+    this.billDetail = data;
   }
 
   @action
   clearBillDetail() {
-    this.billDetail = { data: [], amount: 0 };
+    this.billDetail = {};
   }
 
   @action
   filterBill(day) {
-    let obj = filter(this.listBillDefault, function(o) {
-      return moment(o.created).format("YYYY-MM-DD") == day;
-    });
-    if (obj) {
-      console.log("du lieu tim kiem:filterbill " + JSON.stringify(obj));
-      this.listBill = [];
-      this.listBill = obj;
-    }
+    const dayNow = moment(day).format("YYYY-MM-DD");
+    this.getListBill(dayNow, dayNow, status => {});
   }
 
   @action
@@ -110,20 +95,21 @@ class Bill {
   }
 
   @action
-  getListBill(fromDate, toDate, callback = null) {
+  getListBill(from_date, to_date, callback = null) {
     let body = {
-      fromDate,
-      toDate
+      from_date,
+      to_date
     };
-    console.log("bodu: ", body);
-
+    console.log("getListBill: ", body);
     PostWithToken(api.BILL.bills, body, (data, status) => {
+      console.log("data: ", data);
       if (status) {
         if (get(data, "code") == 0) {
           if (size(get(data, "data")) > 0) {
             this.setDataListBill(get(data, "data"));
             callback && callback(true);
           } else {
+            this.setDataListBill([]);
             callback && callback(false);
           }
         } else {
@@ -138,7 +124,11 @@ class Bill {
 
   @action
   setDataListBill(data) {
-    this.listBill = data;
+    if (data) {
+      this.listBill = data;
+    } else {
+      this.listBill = [];
+    }
   }
 
   @action
@@ -147,8 +137,9 @@ class Bill {
   }
 
   @action
-  getBillDetail(bill_id, callback = null) {
-    PostWithToken(api.BILL.bill_detail, { bill_id }, (data, status) => {
+  getBillDetail(sell_id, callback = null) {
+    console.log("sellId: ", sell_id);
+    PostWithToken(api.BILL.sell_detail, { sell_id }, (data, status) => {
       console.log("data", data);
       if (status) {
         if (get(data, "code") == 0) {

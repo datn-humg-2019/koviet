@@ -25,7 +25,6 @@ export default class BillDetail extends Component {
 
   componentDidMount = () => {
     const { Bill, item } = this.props;
-    const self = this;
     Bill.getBillDetail(get(item, "id"), status => {
       if (status) {
       }
@@ -133,7 +132,7 @@ export default class BillDetail extends Component {
                 color: color.mainColor
               }}
             >
-              {numeral(Bill.billDetail.amount).format("0,0") + "đ"}
+              {numeral(Bill.billDetail.price).format("0,0") + "đ"}
             </Text>
             <Text
               style={{
@@ -193,7 +192,7 @@ export default class BillDetail extends Component {
               </Text> */}
             </View>
             <ListItemView
-              data={Bill.billDetail.data || []}
+              data={(Bill.billDetail && Bill.billDetail.detail) || []}
               clickItem={this.clickListItem}
             />
             <View
@@ -211,7 +210,7 @@ export default class BillDetail extends Component {
                   {"Tổng tiền: "}
                 </Text>
                 <Text style={{ color: color.mainColor }}>
-                  {numeral(Bill.billDetail.amount).format("0,0") + "đ"}
+                  {numeral(Bill.billDetail.price).format("0,0") + "đ"}
                 </Text>
               </Text>
             </View>

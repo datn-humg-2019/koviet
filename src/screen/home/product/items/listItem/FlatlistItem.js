@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Text, View, Image, TouchableOpacity } from "react-native";
 import numeral from "numeral";
 import { get, head } from "lodash";
-import { values, color,fonts } from "../../../../../config";
+import { values, color, fonts, images } from "../../../../../config";
 export default class FlatlistItem extends Component {
   render() {
     let { item, clickItem } = this.props;
@@ -71,7 +71,9 @@ export default class FlatlistItem extends Component {
           <Text
             style={{
               color: color.mainColor,
-              fontSize: values.fontSizeSmaller,
+              fontSize: values.fontSizeNormal,
+              marginTop: 3,
+              fontWeight: "bold",
               width: "100%"
             }}
           >
@@ -122,24 +124,24 @@ export default class FlatlistItem extends Component {
           </View>
         }
         {get(item, "stop_providing") ? (
-            <Text
-              style={[
-                {
-                  right: 0,
-                  top: 25,
-                  position: "absolute",
-                  fontSize: 10,
-                  fontFamily: fonts.svn_inter,
-                  color: color.red
-                },
-                { transform: [{ rotate: "40deg" }] }
-              ]}
-            >
-              Ngừng kinh doanh
-            </Text>
-          ) : (
-            <Text />
-          )}
+          <Text
+            style={[
+              {
+                right: 0,
+                top: 25,
+                position: "absolute",
+                fontSize: 10,
+                fontFamily: fonts.svn_inter,
+                color: color.red
+              },
+              { transform: [{ rotate: "40deg" }] }
+            ]}
+          >
+            Ngừng kinh doanh
+          </Text>
+        ) : (
+          <Text />
+        )}
       </TouchableOpacity>
       // </View >
     );

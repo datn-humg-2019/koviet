@@ -14,6 +14,7 @@ import SimpleToast from "react-native-simple-toast";
 import CheckBoxView from "../../../component/CheckBoxView";
 
 type PropsType = { clickRegister: Function };
+
 export default class RegisterScreen extends React.PureComponent<PropsType> {
   constructor(props) {
     super(props);
@@ -81,10 +82,12 @@ export default class RegisterScreen extends React.PureComponent<PropsType> {
     if (this.checkValue()) {
       if (isUnderstand) {
         this.props.clickRegister({
-          "user[email]": email,
-          "user[phone]": phone,
-          "user[password]": password,
-          "user[name]": name
+          user: {
+            email,
+            phone,
+            name,
+            password
+          }
         });
       } else {
         SimpleToast.show("Bạn cần chấp nhận điều khoản dịch vụ");

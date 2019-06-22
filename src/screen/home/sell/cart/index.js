@@ -42,7 +42,7 @@ export default class CartScreen extends Component {
     console.log(item);
   };
 
-  nextToStep2 = () => {
+    nextToStep2 = () => {
     this.setState({ step: 2 });
   };
 

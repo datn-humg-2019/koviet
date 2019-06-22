@@ -51,7 +51,8 @@ const api = {
   },
   BILL: {
     sell: "/sell",
-    bills: "/bills",
+    bills: "/sells",
+    sell_detail: "/sell_detail",
     bill_detail: "/bill_detail"
     // getListBill: "/bills/list",
     // getBillInfo: "/bill/info/"

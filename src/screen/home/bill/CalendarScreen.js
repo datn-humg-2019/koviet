@@ -87,7 +87,7 @@ export default class CalendarScreen extends Component {
   clickReset = () => {
     let { Bill } = this.props;
     this.setState({ daySelected: moment(new Date()).format("YYYY-MM-DD") });
-    Bill.setDayFilter("");
+    Bill.setDayFilter(new Date());
     this.goBack();
   };
 

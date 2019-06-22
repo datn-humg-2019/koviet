@@ -20,7 +20,7 @@ export default class Step02View extends Component {
 
     this.state = {
       email: "",
-      isSendMail: true,
+      isSendMail: false,
       isPrint: false
     };
   }
@@ -30,14 +30,22 @@ export default class Step02View extends Component {
   };
 
   handleClick = type => {
-    if (type) {
+    if (type === 0) {
+      this.setState({
+        isSendMail: true,
+        isPrint: false
+      });
+    }
+
+    if (type === 1) {
       this.setState({
         isSendMail: false,
         isPrint: true
       });
-    } else {
+    }
+    if (type === 2) {
       this.setState({
-        isSendMail: true,
+        isSendMail: false,
         isPrint: false
       });
     }
@@ -56,6 +64,10 @@ export default class Step02View extends Component {
     }
   };
 
+  print = () => {
+    SimpleToast.show("Không có máy POS nào trong phạm vi kết nối!");
+  };
+
   handleNewCart = () => {
     if (this.state.isSendMail) {
       if (this.state.email.trim() != "") {
@@ -67,10 +79,13 @@ export default class Step02View extends Component {
       } else {
         SimpleToast.show("Bạn cần nhập email");
       }
+    } else {
+      this.props.goToNewCart("");
     }
   };
 
   render() {
+    const noPrint = !this.state.isPrint && !this.state.isSendMail;
     return (
       <TouchableOpacity
         onPress={() => Keyboard.dismiss()}
@@ -91,6 +106,11 @@ export default class Step02View extends Component {
           }}
         >
           <CheckBoxView
+            onPress={() => this.handleClick(2)}
+            isCheck={noPrint}
+            title="Không cần Hoá đơn"
+          />
+          <CheckBoxView
             onPress={() => this.handleClick(0)}
             isCheck={this.state.isSendMail}
             title="Hoá đơn điện tử"
@@ -100,6 +120,7 @@ export default class Step02View extends Component {
             isCheck={this.state.isPrint}
             title="Hoá đơn giấy"
           />
+
           {this.state.isSendMail ? (
             <View>
               <Text
@@ -126,7 +147,7 @@ export default class Step02View extends Component {
         <View style={{ width: "100%", paddingHorizontal: 15 }}>
           {this.state.isPrint ? (
             <ButtonGradient
-              onPress={() => this.setState({})}
+              onPress={this.print}
               colors={["#1492E6", "#1492E6"]}
               title={"In hoá đơn"}
             />

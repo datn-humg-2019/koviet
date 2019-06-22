@@ -82,7 +82,7 @@ class User {
   }
 
   @action
-  registregisterAccounterAccount(json, callback = null) {
+  registerAccount(json, callback = null) {
     PostNoToken(api.AUTH.signup, json, (data, status) => {
       console.log("data register: " + JSON.stringify(data));
       if (status) {
@@ -136,12 +136,12 @@ class User {
   @action
   forgotPassword(value, callback = null) {
     PostNoToken(api.AUTH.forgetPass, { email: value }, (status, data) => {
+      console.log("data: ", data);
       if (status) {
         if (data) {
-          if (data.errorCode == 0) {
+          if (data.code == 0) {
             callback && callback(true);
-            SimpleToast.show(data.message);
-            // this.token = data.responseBase.token;
+            SimpleToast.show(data.data);
           } else {
             callback && callback(false);
             SimpleToast.show(data.message);

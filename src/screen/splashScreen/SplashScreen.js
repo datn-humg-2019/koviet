@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { Text, View, Image, AsyncStorage } from "react-native";
+import { Text, View, AsyncStorage } from "react-native";
 
-import { goHome, goAuth, goApp2 } from "../../../App";
+import { goHome, goAuth } from "../../../App";
 console.disableYellowBox = true;
-import styles from "./StyleSheet";
 import { inject, observer } from "mobx-react";
-import { images, values, color, fonts } from "../../config";
+import { color, fonts } from "../../config";
 @inject("User", "OnApp")
 @observer
 export default class SplashScreen extends Component {
@@ -48,13 +47,13 @@ export default class SplashScreen extends Component {
       >
         <Text
           style={{
-            fontSize: 70,
+            fontSize: 58,
             fontWeight: "bold",
             fontFamily: fonts.svn_inter,
-            color: '#fff'
+            color: "#fff"
           }}
         >
-          {"KoViet"}
+          {"KOViet"}
         </Text>
         {!OnApp.isConnect ? (
           <Text style={StyleSheet.textDisconnect}>

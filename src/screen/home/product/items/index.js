@@ -314,7 +314,7 @@ export default class ItemScreen extends Component {
           data={Product.genListGroupProductFilter()}
           clickItem={this.clickItemFilter}
         />
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={this.createNew}
           style={{
             width: 50,
@@ -337,7 +337,7 @@ export default class ItemScreen extends Component {
             }}
             source={images.ic_plus}
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     );
   }

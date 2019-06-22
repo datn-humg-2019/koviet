@@ -1,39 +1,37 @@
 {
   "project_info": {
-    "project_number": "827820975513",
-    "firebase_url": "https://smartpos-7b682.firebaseio.com",
-    "project_id": "smartpos-7b682",
-    "storage_bucket": "smartpos-7b682.appspot.com"
+    "project_number": "966251619591",
+    "firebase_url": "https://koviet-a9423.firebaseio.com",
+    "project_id": "koviet-a9423",
+    "storage_bucket": "koviet-a9423.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:827820975513:android:771d7a850fc72502",
+        "mobilesdk_app_id": "1:966251619591:android:213466fe6405bbfd",
         "android_client_info": {
-          "package_name": "com.smartPOS"
+          "package_name": "com.atran.koviet"
         }
       },
       "oauth_client": [
         {
-          "client_id": "827820975513-scn9ino091abbj56fejse98n87ch1u59.apps.googleusercontent.com",
+          "client_id": "966251619591-m978qv61u327bej64f3ahj41sjb0qi26.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD1Lu3A1MIiD5bJd1L3AS9wRdz-t6Ds9Jw"
+          "current_key": "AIzaSyD6YdyuHwxC2Qk_rmCiiYxeFRKIIAAffg0"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "966251619591-m978qv61u327bej64f3ahj41sjb0qi26.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

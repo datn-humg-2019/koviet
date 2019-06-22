@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>KoViet</string>
+	<string>KOViet</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -22,8 +22,6 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>0.0.1</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>whatsapp</string>
@@ -33,8 +31,8 @@
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
 	</array>
-
-
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

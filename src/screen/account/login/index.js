@@ -32,8 +32,10 @@ export default class LoginScreen extends React.Component<PropsType> {
 
     this.state = {
       // email: "aitranxuan.dev@gmail.com",
-      email: "tuanbacyen@gmail.com",
-      password: "123456",
+      email: "",
+      password: "",
+      // email: "tuanbacyen@gmail.com",
+      // password: "123456",
       isShowPass: false
     };
   }
@@ -150,7 +152,7 @@ export default class LoginScreen extends React.Component<PropsType> {
               underlineColorAndroid={"transparent"}
               placeholder="Email"
               placeholderTextColor={color.colorText_nolected}
-              // keyboardType='email-address'
+              keyboardType='email-address'
               style={{
                 color: color.mainColor,
                 height: 40,
