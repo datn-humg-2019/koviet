@@ -17,7 +17,7 @@
     "lodash": "4.17.11",
     "mobx": "4.3.1",
     "mobx-react": "5.2.0",
-    "moment": "2.22.2",
+    "moment": "2.29.4",
     "numeral": "^2.0.6",
     "react": "16.6.1",
     "react-native": "0.57.5",
